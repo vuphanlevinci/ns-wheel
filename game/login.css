@@ -1,0 +1,14 @@
+.select2-selection.select2-selection--multiple {
+  padding: 12px 12px !important;
+  border-radius: 12px !important;
+  border: 1px solid #f7b84b !important;
+  background: #4f2921 !important;
+  min-height: 58px;
+}
+
+.select2-search__field {
+  height: 32px !important;
+  font-size: 24px !important;
+  margin: 0px !important;
+  line-height: 32px !important;
+}
