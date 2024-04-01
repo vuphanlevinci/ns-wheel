@@ -30,7 +30,7 @@ html(lang="en")
             .login-form-row
               p.label-require Name
               .form-input-box
-                input(name="username" required, class="form-input", placeholder="Enter name", id="user_name")
+                input(name="username" required, autocomplete="off" class="form-input", placeholder="Enter name", id="user_name")
             .login-form-row
               p.label-not-require Topics
               select#topics.js-example-basic-multiple(name="topics[]", multiple="multiple")

@@ -202,8 +202,6 @@ class FortuneWheel extends Phaser.Scene {
     const randomNumber = Math.random() * totalRate;
     let cumulative = 0;
 
-    console.log(randomNumber);
-
     for (let i = 0; i < elements.length; i++) {
       cumulative += rates[i];
       if (randomNumber <= cumulative) {
@@ -299,6 +297,12 @@ class FortuneWheel extends Phaser.Scene {
 
               // insert here yuor win event handler
               console.log("spin complete");
+
+              fetch("/names")
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error("Error:", error));
+
               this.canSpin = true; // player can spin again
               this.animLightSector(); // this.wheel_spin_clip.stop();
               this.win_clip.play();

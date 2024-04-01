@@ -234,22 +234,8 @@ var wheelConfig = {
     max: 4,
   },
   lightTweenDuration: 500,
+};
 
-  createLamps: function (scene) {
-    scene.lampsArray = [];
-    var angle = (Math.PI * 2) / this.lamps.count;
-    var piD2 = Math.PI / 2;
-
-    for (var i = 1; i < this.lamps.count; i++) {
-      var _angle = -angle * i - piD2;
-      var _cos = Math.cos(_angle);
-      var _sin = Math.sin(_angle);
-
-      var posX = this.lamps.offset * _cos;
-      var posY = this.lamps.offset * _sin;
-      scene.lamp = new Lamp(scene, posX, posY);
-      scene.lamp.on();
-      scene.lampsArray.push(scene.lamp);
-    }
-  },
+module.exports = {
+  wheelConfig,
 };
