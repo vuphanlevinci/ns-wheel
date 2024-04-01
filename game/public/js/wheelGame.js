@@ -169,7 +169,7 @@ class FortuneWheel extends Phaser.Scene {
     this.coinParticles = this.add.particles("coinspin");
 
     // create lamps
-    wheelConfig.createLamps(this);
+    // wheelConfig.createLamps(this);
 
     // the game has just started and we can spin the wheel
     this.canSpin = true;
@@ -304,7 +304,7 @@ class FortuneWheel extends Phaser.Scene {
                 .catch((error) => console.error("Error:", error));
 
               this.canSpin = true; // player can spin again
-              this.animLightSector(); // this.wheel_spin_clip.stop();
+              //  this.animLightSector(); // this.wheel_spin_clip.stop();
               this.win_clip.play();
             },
           });
