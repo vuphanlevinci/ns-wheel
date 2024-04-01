@@ -256,11 +256,7 @@ class FortuneWheel extends Phaser.Scene {
       var elements = wheelConfig.sectors.map((x, index) => index);
       var rates = this.quantities;
 
-      console.log(rates);
-
       var rand_sector = this.getRandomElementWithRate(elements, rates);
-
-      console.log(rand_sector);
 
       // rand_sector = 0;
       var rand_degrees = (rand_sector * 360) / wheelConfig.sectors.length;
@@ -270,8 +266,6 @@ class FortuneWheel extends Phaser.Scene {
         wheelConfig.backSpin.min,
         wheelConfig.backSpin.max
       );
-
-      console.log(rand_sector);
 
       // now the wheel cannot spin because it's already spinning
       this.canSpin = false;
