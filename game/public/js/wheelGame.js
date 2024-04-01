@@ -55,7 +55,8 @@ class FortuneWheel extends Phaser.Scene {
     this.load.audio("pointer_hit_clip", [
       "audio/pointer_hit.ogg",
       "audio/pointer_hit.mp3",
-    ]); // this.load.audio('wheel_spin_clip', 'audio/spin_sound.mp3'); this.load.audio('coins_clip', 'audio/win_coins.wav');
+    ]);
+    // this.load.audio('wheel_spin_clip', 'audio/spin_sound.mp3'); this.load.audio('coins_clip', 'audio/win_coins.wav');
     this.load.audio("win_clip", ["audio/win_sound.ogg", "audio/win_sound.mp3"]);
 
     // loading bitmap fonts
@@ -68,9 +69,12 @@ class FortuneWheel extends Phaser.Scene {
 
   // method to be executed once the scene has been created
   create() {
-    console.log("aaaa");
     this.quantities = wheelConfig.sectors.map((x) => x.quantity);
+    console.log(this.quantities);
     this.sectorsCount = wheelConfig.sectors.length;
+
+    console.log(this.sectorsCount);
+
     this.centerX =
       fortuneWheelGame.config.width / 2 + wheelConfig.centerOffsetX;
     this.centerY =
@@ -305,7 +309,7 @@ class FortuneWheel extends Phaser.Scene {
                 .catch((error) => console.error("Error:", error));
 
               this.canSpin = true; // player can spin again
-              //  this.animLightSector(); // this.wheel_spin_clip.stop();
+              this.animLightSector(); // this.wheel_spin_clip.stop();
               this.win_clip.play();
             },
           });

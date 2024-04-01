@@ -6,7 +6,7 @@ const sectors = [
     text: "1",
     isBigWin: false,
     icon: "heart",
-    quantity: 0,
+    quantity: 100,
   },
   {
     win: "Brush booster x1",
@@ -43,6 +43,20 @@ const sectors = [
     icon: "tnt",
     quantity: 0,
   },
+  {
+    win: "200 coins",
+    text: "5",
+    isBigWin: false,
+    icon: "coin",
+    quantity: 100,
+  },
+  {
+    win: "TNT booster x1",
+    text: "6",
+    isBigWin: false,
+    icon: "tnt",
+    quantity: 100,
+  },
 ];
 
 const express = require("express");
@@ -61,28 +75,29 @@ app.get("/", (req, res) => {
 
 app.post("/game", (req, res) => {
   if (req?.body?.username) {
-    const configs = {
+    const newConfigs = {
       ...config.wheelConfig,
       sectors: sectors,
     };
-    res.render("game", { wheelConfig: JSON.stringify(configs) });
+    res.render("game", { wheelConfig: JSON.stringify(newConfigs) });
   } else {
     res.redirect("/");
   }
 });
 
 app.get("/game", async (req, res) => {
-  //   res.redirect("/");
-  const configs = {
-    ...config.wheelConfig,
-    sectors: sectors,
-  };
-  res.render("game", { wheelConfig: JSON.stringify(configs) });
+  res.redirect("/");
 });
 
 app.get("/names", (req, res) => {
   res.json({
     test: "ss",
+  });
+});
+
+app.get("/quantites", (req, res) => {
+  res.json({
+    data: [0, 0, 100, 50, 100, 0, 100, 100],
   });
 });
 

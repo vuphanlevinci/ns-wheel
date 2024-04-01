@@ -54,6 +54,20 @@ var wheelConfig = {
       icon: "tnt",
       quantity: 0,
     },
+    {
+      win: "200 coins",
+      text: "5",
+      isBigWin: false,
+      icon: "coin",
+      quantity: 100,
+    },
+    {
+      win: "TNT booster x1",
+      text: "6",
+      isBigWin: false,
+      icon: "tnt",
+      quantity: 100,
+    },
   ],
 
   sprites: [
@@ -82,7 +96,7 @@ var wheelConfig = {
       offsetY: 650,
     },
     {
-      fileName: "LightSector_6.png",
+      fileName: "LightSector_8.png",
       name: "lightsector",
       originX: 0.5,
       originY: 1,
@@ -114,7 +128,7 @@ var wheelConfig = {
       offsetY: -85,
     },
     {
-      fileName: "Wheel_6.png", //5
+      fileName: "Wheel_8.png", //5
       name: "wheel",
       originX: 0.5,
       originY: 0.5,
