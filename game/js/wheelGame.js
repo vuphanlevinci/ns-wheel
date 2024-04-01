@@ -68,6 +68,7 @@ class FortuneWheel extends Phaser.Scene {
 
   // method to be executed once the scene has been created
   create() {
+    this.quantities = wheelConfig.sectors.map((x) => x.quantity);
     this.sectorsCount = wheelConfig.sectors.length;
     this.centerX =
       fortuneWheelGame.config.width / 2 + wheelConfig.centerOffsetX;
@@ -206,6 +207,9 @@ class FortuneWheel extends Phaser.Scene {
     for (let i = 0; i < elements.length; i++) {
       cumulative += rates[i];
       if (randomNumber <= cumulative) {
+        if (this.quantities[i] > 0) {
+          this.quantities[i] = this.quantities[i] - 1;
+        }
         return elements[i];
       }
     }
@@ -247,11 +251,16 @@ class FortuneWheel extends Phaser.Scene {
       );
 
       // then will rotate by a random number from 0 to 360 degrees. This is the actual spin
-      //   var rand_sector = Phaser.Math.Between(0, wheelConfig.sectors.length - 1);
+      // var rand_sector = Phaser.Math.Between(0, wheelConfig.sectors.length - 1);
 
       var elements = wheelConfig.sectors.map((x, index) => index);
-      var rates = wheelConfig.sectors.map((x) => x.rate);
+      var rates = this.quantities;
+
+      console.log(rates);
+
       var rand_sector = this.getRandomElementWithRate(elements, rates);
+
+      console.log(rand_sector);
 
       // rand_sector = 0;
       var rand_degrees = (rand_sector * 360) / wheelConfig.sectors.length;
