@@ -68,6 +68,7 @@ class FortuneWheel extends Phaser.Scene {
 
   // method to be executed once the scene has been created
   create() {
+    console.log("aaaa");
     this.quantities = wheelConfig.sectors.map((x) => x.quantity);
     this.sectorsCount = wheelConfig.sectors.length;
     this.centerX =
